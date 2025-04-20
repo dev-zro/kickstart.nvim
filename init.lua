@@ -171,7 +171,14 @@ vim.opt.tabstop = 4
 
 -- [[ Basic Keymaps ]]
 --  See `:help vim.keymap.set()`
-vim.keymap.set('n', '<leader>p', vim.cmd.Ex, { desc = 'Open file browser (netrw)' })
+vim.keymap.set('n', '<leader>n', vim.cmd.Ex, { desc = 'Open file browser (netrw)' })
+vim.keymap.set('n', '<leader>g', vim.cmd.Neogit, { desc = 'Open neogit' })
+vim.keymap.set('n', '<leader>c', function()
+  vim.cmd 'sp'
+  vim.cmd 'term'
+  vim.api.nvim_input 'i'
+end, { desc = 'Open terminal' })
+vim.keymap.set('n', '<C-w>t', vim.cmd.tabc, { desc = 'Close tab' })
 
 -- Clear highlights on search when pressing <Esc> in normal mode
 --  See `:help hlsearch`
