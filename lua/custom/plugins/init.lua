@@ -13,5 +13,8 @@ return {
       'sindrets/diffview.nvim',
       'nvim-telescope/telescope.nvim',
     },
+    opts = {
+      kind = 'replace',
+    },
   },
 }
