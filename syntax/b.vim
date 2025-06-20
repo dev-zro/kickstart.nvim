@@ -9,11 +9,13 @@ endif
 
 syn keyword StorageClass    extrn auto
 syn keyword Statement       return goto
-syn keyword Conditional     if else
+syn keyword Conditional     if else switch
+syn keyword Label           case
 syn keyword Repeat          while
 syn match   Variable        "\<\h\w*"
+syn match   Label           "\<\h\w*\ze:"
 syn match   Operator        "[-+*/<>=?!&|%]"
-syn match   Delimiter       "[,;(){}\[\]]"
+syn match   Delimiter       "[,;:(){}\[\]]"
 syn match   Function        "\<\h\w*\ze\_s*("
 syn match   Number          '\d\+'
 syn match   Number          '0x\x\+'
