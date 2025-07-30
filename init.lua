@@ -179,6 +179,7 @@ vim.o.expandtab = true
 
 -- [[ Basic Keymaps ]]
 --  See `:help vim.keymap.set()`
+vim.keymap.set('n', '<leader>a', '<C-^>', { desc = '[A]lternate file' })
 vim.keymap.set('n', '<leader>n', vim.cmd.Ex, { desc = 'Open file browser (netrw)' })
 vim.keymap.set('n', '<leader>g', vim.cmd.Neogit, { desc = 'Open neogit' })
 vim.keymap.set('n', '<leader>c', function()
