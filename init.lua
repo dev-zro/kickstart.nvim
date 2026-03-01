@@ -437,6 +437,14 @@ require('lazy').setup({
       vim.keymap.set('n', '<leader>sc', builtin.commands, { desc = '[S]earch [C]ommands' })
       vim.keymap.set('n', '<leader><leader>', builtin.buffers, { desc = '[ ] Find existing buffers' })
 
+      vim.keymap.set('v', '<leader>sg', function()
+        vim.api.nvim_feedkeys('y', 'x', false)
+        local selected_text = vim.fn.getreg '"'
+        require('telescope.builtin').live_grep {
+          default_text = selected_text,
+        }
+      end, { desc = '[S]earch by [G]rep' })
+
       -- This runs on LSP attach per buffer (see main LSP attach function in 'neovim/nvim-lspconfig' config for more info,
       -- it is better explained there). This allows easily switching between pickers if you prefer using something else!
       vim.api.nvim_create_autocmd('LspAttach', {
