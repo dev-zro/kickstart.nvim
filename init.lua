@@ -177,6 +177,7 @@ do
 
   -- [[ Basic Keymaps ]]
   --  See `:help vim.keymap.set()`
+  vim.keymap.set('n', '<leader>p', vim.cmd.Ex, { desc = 'Open file browser (netrw)' })
 
   -- Clear highlights on search when pressing <Esc> in normal mode
   --  See `:help hlsearch`
