@@ -390,8 +390,8 @@ do
   vim.pack.add { gh 'rebelot/kanagawa.nvim' }
   ---@diagnostic disable-next-line: missing-fields
   require('kanagawa').setup {
-    styles = {
-      comments = { italic = false }, -- Disable italics in comments
+    commentStyle = {
+      italic = false,
     },
   }
 
