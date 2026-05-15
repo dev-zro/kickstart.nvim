@@ -183,6 +183,8 @@ do
   vim.o.shiftwidth = 4
   vim.o.expandtab = true
 
+  vim.o.wrap = false
+
   -- [[ Basic Keymaps ]]
   --  See `:help vim.keymap.set()`
   vim.keymap.set('n', '<leader>a', '<C-^>', { desc = '[A]lternate file' })
