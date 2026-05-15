@@ -736,7 +736,7 @@ do
     ruff = {
       init_options = {
         settings = {
-          lineLength = 80,
+          lineLength = 100,
           lint = {
             ignore = { 'COM812', 'PD008', 'PD009' },
             select = {
