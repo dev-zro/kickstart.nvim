@@ -734,72 +734,7 @@ do
         python = {
           analysis = {
             -- Ignore all files for analysis to exclusively use Ruff for linting
-            -- ignore = { '*' },
-          },
-        },
-      },
-    },
-    ruff = {
-      init_options = {
-        settings = {
-          lineLength = 100,
-          lint = {
-            ignore = { 'COM812', 'PD008', 'PD009' },
-            select = {
-              'FAST',
-              'YTT',
-              'ANN',
-              'ASYNC',
-              'S',
-              'BLE',
-              'FBT',
-              'B',
-              'A',
-              'COM',
-              'C4',
-              'DTZ',
-              'T10',
-              'EM',
-              'EXE',
-              'INT',
-              'ISC',
-              'ICN',
-              'LOG',
-              'G',
-              'INP',
-              'PIE',
-              'PYI',
-              'PT',
-              'Q',
-              'RSE',
-              'RET',
-              'SLF',
-              'SIM',
-              'SLOT',
-              'TID',
-              'TC',
-              'ARG',
-              'PTH',
-              'FLY',
-              'I',
-              'NPY',
-              'PD',
-              'N',
-              'PERF',
-              'E',
-              'W',
-              'DOC',
-              'F',
-              'PGH',
-              'PL',
-              'PLE',
-              'PLR',
-              'PLW',
-              'UP',
-              'FURB',
-              'RUF',
-              'TRY',
-            },
+            ignore = { '*' },
           },
         },
       },
@@ -1018,7 +953,7 @@ do
   vim.pack.add { { src = gh 'nvim-treesitter/nvim-treesitter', version = 'main' } }
 
   -- Ensure basic parsers are installed
-  local parsers = { 'bash', 'c', 'css', 'diff', 'html', 'json', 'lua', 'luadoc', 'markdown', 'markdown_inline', 'query', 'vim', 'vimdoc' }
+  local parsers = { 'bash', 'c', 'css', 'diff', 'html', 'json', 'lua', 'luadoc', 'markdown', 'markdown_inline', 'python', 'query', 'vim', 'vimdoc' }
   require('nvim-treesitter').install(parsers)
 
   ---@param buf integer
@@ -1091,6 +1026,13 @@ do
   --
   --  Uncomment the following line and add your plugins to `lua/custom/plugins/*.lua` to get going.
   require 'custom.plugins'
+
+  local success, result = pcall(require, 'custom.local')
+  if success then
+    vim.notify('Local config loaded', vim.log.levels.INFO)
+  else
+    vim.notify('No local config found', vim.log.levels.INFO)
+  end
 end
 
 -- The line beneath this is called `modeline`. See `:help modeline`
